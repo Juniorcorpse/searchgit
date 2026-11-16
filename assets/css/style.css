@@ -37,7 +37,7 @@ input {
 }
 
 .page-shell {
-  width: min(100% - 40px, 700px);
+  width: min(100% - 40px, 1100px);
   margin: 0 auto;
   padding: clamp(64px, 12vh, 118px) 0 34px;
 }
