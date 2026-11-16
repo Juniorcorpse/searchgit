@@ -1,6 +1,14 @@
 (() => {
+  /* Esse trecho usa desestruturação de objetos para copiar funções de namespaces
+   globais para constantes locais ao app.js, evitando repetir referências longas. */
+
+   //getElement vem de window.GitHubSearchDOM, criado em dom.js, e busca elementos do HTML.
   const { getElement } = window.GitHubSearchDOM;
+
+  //loadGitHubProfile e searchRepositories vêm de github-api.js, que consulta a API do GitHub.
   const { loadGitHubProfile, searchRepositories } = window.GitHubSearchApi;
+
+  //As funções show... vêm de ui.js, que atualiza a interface.
   const {
     showEmptyState,
     showErrorState,
