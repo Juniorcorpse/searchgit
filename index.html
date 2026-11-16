@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pesquise repositórios do GitHub e descubra projetos em alta."
+    />
+    <title>BuscaGit — Repositórios do GitHub</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script defer src="assets/js/dom.js"></script>
+    <script defer src="assets/js/github-api.js"></script>
+    <script defer src="assets/js/ui.js"></script>
+    <script defer src="assets/js/app.js"></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="github-menu" aria-label="Perfil do GitHub">
+        <div class="github-menu-top">
+          <div class="profile-overview">
+            <div class="profile-avatar-frame">
+              <span class="profile-avatar-fallback" id="profile-avatar-fallback" aria-hidden="true">
+                JC
+              </span>
+              <img class="profile-avatar" id="profile-avatar" alt="" hidden />
+            </div>
+            <div class="profile-identity">
+              <p class="profile-eyebrow">
+                <span class="profile-status-dot" aria-hidden="true"></span>
+                GITHUB USER
+              </p>
+              <h2 class="profile-name">
+                <span class="terminal-prompt" aria-hidden="true">~$</span>
+                <span class="profile-name-text" id="profile-username">Juniorcorpse</span>
+              </h2>
+              <a
+                class="profile-link"
+                id="profile-link"
+                href="https://github.com/Juniorcorpse"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                github.com/Juniorcorpse ↗
+              </a>
+            </div>
+          </div>
+          <p class="profile-status" id="profile-status" role="status" aria-live="polite">
+            Carregando dados do GitHub...
+          </p>
+        </div>
+
+        <dl class="profile-stats" aria-label="Estatísticas públicas do GitHub">
+          <div class="profile-stat">
+            <dt>Seguidores</dt>
+            <dd id="profile-followers">—</dd>
+          </div>
+          <div class="profile-stat">
+            <dt>Seguindo</dt>
+            <dd id="profile-following">—</dd>
+          </div>
+          <div class="profile-stat">
+            <dt>Repositórios</dt>
+            <dd id="profile-repositories">—</dd>
+          </div>
+          <div class="profile-stat">
+            <dt>Pull requests</dt>
+            <dd id="profile-pull-requests">—</dd>
+          </div>
+          <div class="profile-stat">
+            <dt>Commits</dt>
+            <dd id="profile-commits">—</dd>
+          </div>
+        </dl>
+      </header>
+
+      <header class="page-header">
+        <p class="eyebrow">Explore o GitHub</p>
+        <h1>Encontre seu próximo projeto favorito.</h1>
+        <p class="page-description">
+          Busque repositórios por tecnologia, assunto ou nome.
+        </p>
+      </header>
+
+      <form class="search-card" id="search-form" novalidate>
+        <label for="search-input">O que você quer encontrar?</label>
+        <div class="search-controls">
+          <input
+            id="search-input"
+            name="query"
+            type="search"
+            placeholder="Ex.: javascript, machine learning..."
+            autocomplete="off"
+            aria-describedby="search-hint"
+          />
+          <button class="search-button" type="submit">
+            <span>Buscar</span>
+            <span class="button-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+        <p class="search-hint" id="search-hint">
+          Pressione Enter ou clique em Buscar
+        </p>
+      </form>
+
+      <section
+        class="results-card"
+        id="results-card"
+        aria-label="Resultados da busca"
+        aria-busy="false"
+      >
+        <div id="results-content" aria-live="polite" aria-atomic="true"></div>
+      </section>
+
+      <nav class="pagination" id="pagination" aria-label="Paginação dos resultados" hidden>
+        <button class="pagination-button" id="previous-page" type="button">
+          ← Anterior
+        </button>
+        <span class="page-indicator" id="page-indicator" aria-live="polite"></span>
+        <button class="pagination-button" id="next-page" type="button">
+          Próxima →
+        </button>
+      </nav>
+
+      <footer class="page-footer">
+        <div class="footer-item">
+          <span class="footer-mark" aria-hidden="true">✉</span>
+          <div class="footer-copy">
+            <span class="footer-label">Contato</span>
+            <span class="footer-value">
+              jrSouza:
+              <a class="footer-email" href="mailto:souzajrmar@gmail.com">
+                souzajrmar@gmail.com
+              </a>
+            </span>
+          </div>
+        </div>
+        <div class="footer-item">
+          <span class="footer-mark" aria-hidden="true">✳</span>
+          <div class="footer-copy">
+            <span class="footer-label">Sobre</span>
+            <span class="footer-value">Feito para quem gosta de construir.</span>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>
