@@ -28,5 +28,6 @@ A aplicação pesquisa somente quando o formulário é enviado por Enter ou pelo
 `https://api.github.com/search/repositories?q={PALAVRA-CHAVE}&sort=stars&per_page=10&page={PÁGINA}`
 
 
-## Git PAGE
+## Aplicação online
 
+[🚀 **Acesse o Buscador de repositórios**](https://juniorcorpse.github.io/searchgit/)
