@@ -60,9 +60,23 @@
   // Carrega perfil, pull requests e commits em paralelo para montar o resumo do cabeçalho.
   async function loadGitHubProfile(username) {
     const encodedUsername = encodeURIComponent(username);
+
+    /* Promise.all([...]) inicia as três operações ao mesmo tempo
+    e espera que todas terminem. Quando terminam, os resultados
+    são colocados nas variáveis na mesma ordem: profile, pullRequests,
+    commits. O await pausa essa função até as três concluírem.
+    Se qualquer uma falhar, Promise.all rejeita e o erro é
+    tratado por quem chamou loadGitHubProfile. */
     const [profile, pullRequests, commits] = await Promise.all([
+      //1. requestJson(...) obtém os dados do perfil (profile).
       requestJson(`${API_BASE_URL}/users/${encodedUsername}`),
+      /*
+      2. searchCount("issues", ...) conta os pull requests
+      criados pelo usuário (pullRequests). is:pr filtra apenas pull requests.
+      */
       searchCount("issues", `is:pr author:${username}`),
+      /** searchCount("commits", ...) conta os commits
+       * atribuídos ao usuário (commits).*/
       searchCount("commits", `author:${username}`),
     ]);
 
@@ -79,6 +93,9 @@
 
     return { profile, pullRequests, commits };
   }
-
+/**
+ * Disponibiliza essas duas funções para outros arquivos
+ * JavaScript. Por exemplo, app.js pode acessar
+ * window.GitHubSearchApi.searchRepositories(...). */
   window.GitHubSearchApi = { loadGitHubProfile, searchRepositories };
 })();

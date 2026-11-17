@@ -47,7 +47,12 @@
   searchForm.addEventListener("submit", handleSearch);
   previousPageButton.addEventListener("click", () => loadPage(activeQuery, currentPage - 1));
   nextPageButton.addEventListener("click", () => loadPage(activeQuery, currentPage + 1));
+
+  //rodar sempre que a pessoa alterar o campo de busca
   searchInput.addEventListener("input", () => {
+    /* input é disparado enquanto o valor muda.
+    setCustomValidity("") limpa uma mensagem
+    de validação personalizada anterior */
     searchInput.setCustomValidity("");
   });
 
@@ -59,6 +64,9 @@
 
     if (!query) {
       searchInput.setCustomValidity("Digite um termo para pesquisar.");
+      /**reportValidity() pede ao navegador que valide o campo e,
+      se ele estiver inválido, mostre a mensagem de erro —
+      neste caso, a mensagem definida por setCustomValidity(...) */
       searchInput.reportValidity();
       searchInput.focus();
       return;
@@ -72,6 +80,7 @@
 
   // Evita requisições concorrentes e só atualiza a paginação após resposta válida.
   async function loadPage(query, page) {
+    //Se qualquer condição for verdadeira, return encerra a função e a requisição não é feita:
     if (isLoading || !query || page < 1 || page > totalPages) {
       return;
     }
