@@ -1,21 +1,22 @@
 (() => {
-  const { getElement } = window.GitHubSearchDOM;
-  const resultsContent = getElement("#results-content");
-  const resultsCard = getElement("#results-card");
-  const pagination = getElement("#pagination");
-  const previousPageButton = getElement("#previous-page");
-  const nextPageButton = getElement("#next-page");
-  const pageIndicator = getElement("#page-indicator");
-  const profileAvatar = getElement("#profile-avatar");
+  const { getElement }        = window.GitHubSearchDOM;
+  const resultsContent        = getElement("#results-content");
+  const resultsCard           = getElement("#results-card");
+  const pagination            = getElement("#pagination");
+  const previousPageButton    = getElement("#previous-page");
+  const nextPageButton        = getElement("#next-page");
+  const pageIndicator         = getElement("#page-indicator");
+  const profileAvatar         = getElement("#profile-avatar");
   const profileAvatarFallback = getElement("#profile-avatar-fallback");
-  const profileUsername = getElement("#profile-username");
-  const profileLink = getElement("#profile-link");
-  const profileStatus = getElement("#profile-status");
-  const profileFollowers = getElement("#profile-followers");
-  const profileFollowing = getElement("#profile-following");
-  const profileRepositories = getElement("#profile-repositories");
-  const profilePullRequests = getElement("#profile-pull-requests");
-  const profileCommits = getElement("#profile-commits");
+  const profileName           = getElement("#profile-name");
+  const profileUsername       = getElement("#profile-username");
+  const profileLink           = getElement("#profile-link");
+  const profileStatus         = getElement("#profile-status");
+  const profileFollowers      = getElement("#profile-followers");
+  const profileFollowing      = getElement("#profile-following");
+  const profileRepositories   = getElement("#profile-repositories");
+  const profilePullRequests   = getElement("#profile-pull-requests");
+  const profileCommits        = getElement("#profile-commits");
 
   // Esconde os controles quando não há páginas navegáveis.
   function hidePagination() {
@@ -42,7 +43,8 @@
     profileAvatar.alt = `Foto de ${profile.login}`;
     profileAvatar.hidden = false;
     profileAvatarFallback.hidden = true;
-    profileUsername.textContent = profile.login;
+    profileName.textContent = `~ ${profile.name}$`;
+    profileUsername.textContent = `cd ${profile.login}/`;
     profileLink.href = profile.html_url;
     profileLink.textContent = `github.com/${profile.login} ↗`;
 

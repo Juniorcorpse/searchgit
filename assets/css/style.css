@@ -37,18 +37,33 @@ input {
 }
 
 .page-shell {
-  width: min(100% - 40px, 1100px);
+  width: min(100% - 40px, 1400px);
   margin: 0 auto;
-  padding: clamp(64px, 12vh, 118px) 0 34px;
+  padding: clamp(2px, 1vh, 118px) 0 34px;
 }
 
 .github-menu {
+  width: 100%;
+  display: flex;/* jr */
+  justify-content: space-between;/* jr */
   margin-bottom: 42px;
   padding: 21px 22px 18px;
-  border: 1px solid var(--color-border);
-  border-radius: 20px;
+  /* jr */
+  /* border: 1px solid var(--color-border); */
+  /* border-radius: 20px;
   background: linear-gradient(135deg, rgba(32, 46, 53, 0.96), rgba(25, 36, 43, 0.96));
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.13);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.13); */
+  /* jr */
+}
+
+.page-header,
+.search-card,
+.results-card,
+.pagination,
+.page-footer {
+  width: min(100%, 800px);
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .github-menu-top,
@@ -98,10 +113,13 @@ input {
 }
 
 .profile-avatar-fallback {
+  background: linear-gradient(145deg, rgba(183, 243, 107, 0.18), #111a20 72%);
   color: var(--color-accent);
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.2rem;
   font-weight: 700;
+  letter-spacing: -0.08em;
+  text-shadow: 0 0 16px rgba(183, 243, 107, 0.35);
 }
 
 .profile-identity {
@@ -152,7 +170,7 @@ input {
   border-right: 2px solid var(--color-accent);
   white-space: nowrap;
   animation:
-    profile-typing 1.15s steps(12, end) 0.2s forwards,
+    profile-typing 1.15s steps(16, end) 0.2s forwards,
     profile-cursor 0.8s step-end 1.4s infinite;
 }
 
@@ -233,7 +251,7 @@ input {
 }
 
 h1 {
-  max-width: 620px;
+  max-width: 100%;
   margin: 0;
   font-family: "Space Grotesk", sans-serif;
   font-size: clamp(2.4rem, 7vw, 4.35rem);
@@ -604,7 +622,7 @@ h1 {
 
 @keyframes profile-typing {
   to {
-    max-width: 13ch;
+    max-width: 16ch;
   }
 }
 
