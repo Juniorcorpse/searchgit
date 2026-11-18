@@ -632,13 +632,18 @@ h1 {
   }
 }
 
+@media (max-width: 1200px) {
+  .github-menu {
+    display: block;}
+}
+
 @media (max-width: 560px) {
   .page-shell {
     width: min(100% - 28px, 700px);
     padding-top: 56px;
   }
 
-  .github-menu {
+  .github-menu {    
     margin-bottom: 34px;
     padding: 17px;
     border-radius: 16px;
