@@ -44,7 +44,7 @@
     profileAvatar.hidden = false;
     profileAvatarFallback.hidden = true;
     profileName.textContent = `~ ${profile.name}$`;
-    profileUsername.textContent = `cd ${profile.login}/`;
+    profileUsername.textContent = ` ${profile.login}`;
     profileLink.href = profile.html_url;
     profileLink.textContent = `github.com/${profile.login} ↗`;
 
